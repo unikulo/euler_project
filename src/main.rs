@@ -31,7 +31,25 @@ fn test_sum_of_multiples_of_fibonacci_sequence(){
     assert_eq!(sum_of_multiples_of_fibonacci_sequence(3, 100), 24);
     assert_ne!(sum_of_multiples_of_fibonacci_sequence(3, 100), 44);
 }
+fn largest_prime_factor(mut number: i64) -> i64 {
+    let mut largest_prime_factor = 1;
+    let mut factor = 2;
+    while number > 1 {
+        if number % factor == 0 {
+            largest_prime_factor = factor;
+            number /= factor;
+        } else {
+            factor += 1;
+        }
+    }
+    largest_prime_factor
+}
+#[test]
+fn test_largest_prime_factor(){
+    assert_eq!(largest_prime_factor(13195), 29);
+}
 fn main() {
     println!("1: sum of all the multiples of 3 or 5 below 1000 = {0}", sum_of_multiples(3, 5, 1000));
     println!("2: sum of all the even numbers in the fibonacci sequence whose values do not exceed 4 million = {0}", sum_of_multiples_of_fibonacci_sequence(2, 4000000));
+    println!("3: largest prime factor of the number 600851475143 = {0}", largest_prime_factor(600851475143));
 }
