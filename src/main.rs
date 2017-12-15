@@ -48,8 +48,28 @@ fn largest_prime_factor(mut number: i64) -> i64 {
 fn test_largest_prime_factor(){
     assert_eq!(largest_prime_factor(13195), 29);
 }
+fn largest_palindrome_product(max_product: i32) -> i32{
+    let mut largest_palindrome_product: i32 = 0;
+    for i in 1..max_product {
+        for j in 1..max_product {
+            let product = i * j;
+            let string = product.to_string();
+            if string.bytes().eq(string.bytes().rev()) {
+                if product > largest_palindrome_product {
+                    largest_palindrome_product = product;
+                }
+            }
+        }
+    }
+    largest_palindrome_product
+}
+#[test]
+fn test_largest_palindrome_product(){
+    assert_eq!(largest_palindrome_product(100), 9009);
+}
 fn main() {
     println!("1: sum of all the multiples of 3 or 5 below 1000 = {0}", sum_of_multiples(3, 5, 1000));
     println!("2: sum of all the even numbers in the fibonacci sequence whose values do not exceed 4 million = {0}", sum_of_multiples_of_fibonacci_sequence(2, 4000000));
     println!("3: largest prime factor of the number 600851475143 = {0}", largest_prime_factor(600851475143));
+    println!("4: largest palindrome made from the product of two 3-digit numbers = {0}", largest_palindrome_product(1000));
 }
