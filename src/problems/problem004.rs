@@ -1,7 +1,12 @@
 pub fn largest_palindrome_product(n: u32) -> i32{
+    let from: i32 = 10_i32.pow(n-1);
+    let to: i32 = 10_i32.pow(n);
     let mut largest_palindrome_product: i32 = 0;
-    for i in 10_i32.pow(n-1)..10_i32.pow(n) {
-        for j in 10_i32.pow(n-1)..10_i32.pow(n) {
+    for i in from..to {
+        for j in from..to {
+            if j > i {
+                break;
+            }
             let product = i * j;
             let string = product.to_string();
             if string.bytes().eq(string.bytes().rev()) {
