@@ -14,6 +14,7 @@ pub fn nth_prime_number(n: usize) -> i32{
         } else {
             prime_numbers.push(prime);
             count += 1;
+            prime += 2;
         }
     }
     prime
