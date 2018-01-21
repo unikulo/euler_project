@@ -14,7 +14,7 @@ pub fn sum_of_primes_below(n: usize) -> usize {
             continue;
         }
         if i as f64 > root {
-            break2
+            break;
         }
         let mut j = i * i;
         loop {
