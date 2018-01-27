@@ -27,9 +27,9 @@ pub fn sum_of_primes_below(n: usize) -> usize {
         i += 1;
     }
     let mut result: usize = 0;
-    for i in 2..n {
-        if vec[i - 2] == true {
-            result += i;
+    for (i, b) in vec.iter().enumerate() {
+        if b == &true {
+            result += i + 2;
         }
     }
     result
