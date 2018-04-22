@@ -11,6 +11,7 @@ use problems::problem008;
 use problems::problem009;
 use problems::problem010;
 use problems::problem011;
+use problems::problem012;
 
 fn main() {
     println!("001: sum of all the multiples of 3 or 5 below 1000 = {0}", problem001::sum_of_multiples(3, 5, 1000));
@@ -24,4 +25,5 @@ fn main() {
     println!("009: The product of Pythagorean triplet for which a + b + c = 1000, = {}", problem009::find_pythagorean_triplet(1000));
     println!("010: The sum of all the primes below 2 million = {}", problem010::sum_of_primes_below(2_000_000));
     println!("011: The greatest product of four adjacent numbers in the same direction = {}", problem011::greatest_product());
+	println!("012: {}", problem012::solve_problem(500));
 }
